@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ablinza Metis Trainings & Consultancy</title>
+    <title>Ablinza Metis Trainings & Consultancy (AMTC)</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -55,7 +55,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--text-light);
             text-decoration: none;
@@ -70,10 +70,20 @@
             color: var(--accent);
         }
 
+        .logo small {
+            font-size: 0.8rem;
+            display: block;
+            color: var(--accent);
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
+        }
+
+        .nav-links li {
+            position: relative;
         }
 
         .nav-links a {
@@ -81,10 +91,43 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 5px 0;
         }
 
         .nav-links a:hover {
             color: var(--accent);
+        }
+
+        /* Dropdown menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--primary);
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .dropdown-menu li {
+            display: block;
+            padding: 8px 15px;
+        }
+
+        .dropdown-menu li a {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu li a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links li:hover .dropdown-menu {
+            display: block;
         }
 
         .hamburger {
@@ -105,6 +148,7 @@
             background: linear-gradient(135deg, var(--primary) 0%, #3f5a78 100%);
             color: var(--text-light);
             padding: 60px 0;
+            margin-bottom: 40px;
         }
 
         .hero-reg .container {
@@ -180,7 +224,7 @@
             margin-bottom: 40px;
             color: var(--primary);
             font-weight: 600;
-            text-transform: uppercase; /* All caps */
+            text-transform: uppercase;
         }
 
         /* Cards Grid */
@@ -188,12 +232,14 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            margin-bottom: 40px;
         }
 
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
+            margin-bottom: 40px;
         }
 
         .card {
@@ -241,10 +287,6 @@
             font-size: 1.2rem;
         }
 
-        .card-footer {
-            margin-top: 15px;
-        }
-
         .btn-small {
             background: var(--accent);
             color: var(--text-dark);
@@ -266,6 +308,7 @@
         .about-section {
             background: var(--accent);
             padding: 60px 0;
+            margin-bottom: 40px;
         }
 
         .about-grid {
@@ -313,41 +356,13 @@
             text-align: center;
         }
 
-        /* Teacher Cards (replaced with Why Choose Us, but we keep card style) */
-        .teacher-card {
-            text-align: center;
-        }
-
-        .teacher-card .teacher-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 20px auto 15px;
-            background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--primary);
-            border: 4px solid var(--primary);
-        }
-
-        .teacher-card h4 {
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-
-        .teacher-card p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
         /* Statistics */
         .stats-section {
             background: var(--primary);
             color: var(--text-light);
             padding: 40px 0;
             text-align: center;
+            margin-bottom: 40px;
         }
 
         .stats-grid {
@@ -370,10 +385,30 @@
             margin: 10px 0;
         }
 
+        /* Verification Section */
+        .verification-section {
+            background: var(--accent);
+            padding: 60px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .verification-section h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .verification-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
         /* Contact & Newsletter */
         .contact-section {
             background: var(--background);
             padding: 60px 0;
+            margin-bottom: 40px;
         }
 
         .contact-grid {
@@ -430,6 +465,13 @@
             text-align: center;
         }
 
+        .footer-details {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
         .social-links {
             margin-top: 15px;
         }
@@ -469,6 +511,22 @@
                 display: flex;
             }
 
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background: transparent;
+                box-shadow: none;
+                padding-left: 20px;
+            }
+
+            .nav-links li:hover .dropdown-menu {
+                display: none; /* No hover on mobile */
+            }
+
+            .nav-links li.active .dropdown-menu {
+                display: block; /* Toggle with JS if needed */
+            }
+
             .hero-reg .container {
                 grid-template-columns: 1fr;
             }
@@ -486,18 +544,48 @@
 <body>
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <i class="fas fa-graduation-cap"></i>
-                Ablinza <span>Metis</span>
+                <div>
+                    Ablinza <span>Metis</span>
+                    <small>AMTC</small>
+                </div>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#about">ABOUT US</a></li>
-                <li><a href="#pages">PAGES</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="#">ABOUT US ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about-mission.html">OUR MISSION</a></li>
+                        <li><a href="about-vision.html">OUR VISION</a></li>
+                        <li><a href="about-values.html">OUR VALUES</a></li>
+                        <li><a href="about-history.html">OUR HISTORY</a></li>
+                        <li><a href="policies/quality-policy.pdf" target="_blank">QUALITY POLICY (ISO 9001:2015 & ISO 21001:2025)</a></li>
+                        <li><a href="policies/ehs-policy.pdf" target="_blank">ENVIRONMENT, HEALTH AND SAFETY POLICY (ISO 14001:2015 & ISO 45001:2018)</a></li>
+                        <li><a href="org-chart.pdf" target="_blank">ORGANIZATIONAL CHART</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">OUR SERVICES ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="services-trainings.html">TRAININGS</a></li>
+                        <li><a href="services-consultancy.html">CONSULTANCY</a></li>
+                    </ul>
+                </li>
                 <li><a href="#courses">COURSES</a></li>
-                <li><a href="#events">EVENTS</a></li>
+                <li class="dropdown">
+                    <a href="#">RESOURCES ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="resources/training-calendar.pdf" target="_blank">TRAINING CALENDAR</a></li>
+                        <li><a href="resources/brochure.pdf" target="_blank">BROUCHER</a></li>
+                        <li><a href="resources/profile.pdf" target="_blank">PROFILE</a></li>
+                        <li><a href="resources/complaint-appeal-form.pdf" target="_blank">COMPLAINT AND APPEAL FORM</a></li>
+                        <li><a href="resources/process-flow.pdf" target="_blank">PROCESS FLOW</a></li>
+                    </ul>
+                </li>
                 <li><a href="#blog">BLOG</a></li>
                 <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#verification">VERIFICATIONS</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -512,7 +600,7 @@
         <div class="container">
             <div class="hero-text">
                 <h1>Empower Your Future with Expert Training & Consultancy</h1>
-                <p>Join thousands of professionals who trust Ablinza Metis. Get 50+ courses free for a limited time!</p>
+                <p>Join thousands of professionals who trust Ablinza Metis (AMTC). Get 50+ courses free for a limited time!</p>
             </div>
             <div class="reg-form">
                 <h3>Register Now</h3>
@@ -600,7 +688,7 @@
         </div>
     </section>
 
-    <!-- Why Choose Us (replaces Our Teachers) -->
+    <!-- Why Choose Us -->
     <section class="container">
         <h2 class="section-title">WHY CHOOSE US</h2>
         <div class="grid-4">
@@ -663,7 +751,7 @@
         </div>
     </section>
 
-    <!-- Latest Events -->
+    <!-- Latest Events (now Resources but we keep the section for consistency) -->
     <section class="container" id="events">
         <h2 class="section-title">LATEST EVENTS</h2>
         <div class="grid-3">
@@ -691,7 +779,7 @@
         </div>
     </section>
 
-    <!-- Statistics / Social Media Counts -->
+    <!-- Statistics -->
     <section class="stats-section">
         <div class="container stats-grid">
             <div class="stat-item">
@@ -713,7 +801,7 @@
         </div>
     </section>
 
-    <!-- Publications / Products -->
+    <!-- Publications -->
     <section class="container">
         <h2 class="section-title">PUBLICATIONS</h2>
         <div class="grid-4">
@@ -762,7 +850,16 @@
         </div>
     </section>
 
-    <!-- Recent Posts / Contact Info & Newsletter -->
+    <!-- Verification Section -->
+    <section class="verification-section" id="verification">
+        <div class="container">
+            <h2>VERIFICATIONS</h2>
+            <p>Verify your certificates and credentials issued by AMTC.</p>
+            <a href="#" class="btn">Verify Now</a>
+        </div>
+    </section>
+
+    <!-- Contact Info & Newsletter -->
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="contact-grid">
@@ -793,7 +890,11 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Ablinza Metis Trainings and Consultancy (Pvt.) Ltd. All rights reserved.</p>
+            <div class="footer-details">
+                <p><strong>Ablinza Metis Trainings and Consultancy (AMTC)</strong></p>
+                <p>Office: 503 Old Buffalo Street, Northwest #205, New York-3087 | Phone: +123456789 | Email: info@ablinzametis.com</p>
+                <p>All policies, terms, and conditions apply. © 2026 AMTC. All rights reserved.</p>
+            </div>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -811,15 +912,16 @@
 
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', (e) => {
-                // Smooth scroll
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                if (targetId && targetId !== '#') {
-                    const targetElement = document.querySelector(targetId);
+                // Smooth scroll for anchor links only
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
                     if (targetElement) {
                         targetElement.scrollIntoView({ behavior: 'smooth' });
                     }
                 }
+                // Close mobile menu after click
                 navLinks.classList.remove('active');
             });
         });
