@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ablinza Metis Trainings & Consultancy</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -17,31 +19,30 @@
             --accent: #C8D9E6;
             --text-dark: #2F4156;
             --text-light: #FFFFFF;
-            --gray-light: #f0f0f0;
-            --gray: #666;
+            --gray-light: #f8f9fa;
+            --gray: #6c757d;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
             background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.5;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         /* Navigation */
         nav {
             background-color: var(--primary);
-            padding: 1rem 0;
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .nav-container {
@@ -51,10 +52,18 @@
         }
 
         .logo {
-            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 1.8rem;
-            font-weight: 600;
+            font-weight: 700;
+            color: var(--text-light);
             text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--accent);
         }
 
         .logo span {
@@ -91,148 +100,167 @@
             margin: 3px 0;
         }
 
-        /* Hero / Registration Section */
+        /* Hero + Registration */
         .hero-reg {
             background: linear-gradient(135deg, var(--primary) 0%, #3f5a78 100%);
             color: var(--text-light);
-            padding: 4rem 0;
+            padding: 60px 0;
         }
 
         .hero-reg .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 40px;
             align-items: center;
         }
 
         .hero-text h1 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
 
         .hero-text p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
             opacity: 0.9;
         }
 
         .reg-form {
             background: var(--text-light);
-            padding: 2rem;
+            padding: 30px;
             border-radius: 10px;
             color: var(--text-dark);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .reg-form h3 {
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             color: var(--primary);
         }
 
-        .reg-form input {
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input {
             width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
+            padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1rem;
         }
 
-        .reg-form button {
+        .btn {
             background: var(--primary);
             color: var(--text-light);
             border: none;
-            padding: 0.8rem;
-            width: 100%;
+            padding: 12px 25px;
             border-radius: 5px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
+            display: inline-block;
+            text-decoration: none;
         }
 
-        .reg-form button:hover {
+        .btn:hover {
             background: #1f2e3f;
+        }
+
+        .btn-block {
+            width: 100%;
         }
 
         /* Section Titles */
         .section-title {
             text-align: center;
             font-size: 2.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 40px;
             color: var(--primary);
-            position: relative;
+            font-weight: 600;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            margin: 0.5rem auto 0;
-            border-radius: 2px;
+        .section-title span {
+            color: var(--accent);
         }
 
         /* Cards Grid */
-        .cards-grid {
+        .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
         }
 
         .card {
             background: var(--text-light);
             border-radius: 10px;
-            padding: 1.5rem;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
-            border-bottom: 4px solid var(--accent);
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(47,65,86,0.1);
+            box-shadow: 0 15px 30px rgba(47,65,86,0.1);
+        }
+
+        .card-content {
+            padding: 20px;
         }
 
         .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
             color: var(--primary);
-            margin-bottom: 0.5rem;
         }
 
         .card .meta {
             color: var(--gray);
             font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
         }
 
         .card p {
             color: var(--gray);
-        }
-
-        .card .price {
-            font-weight: bold;
-            color: var(--primary);
-            margin: 1rem 0;
+            margin-bottom: 15px;
         }
 
         .rating {
-            color: gold;
-            margin-bottom: 1rem;
+            color: #f8c51c;
+            margin: 10px 0;
         }
 
-        .btn {
-            display: inline-block;
+        .price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .card-footer {
+            margin-top: 15px;
+        }
+
+        .btn-small {
             background: var(--accent);
             color: var(--text-dark);
-            padding: 0.5rem 1rem;
+            padding: 6px 12px;
+            border-radius: 4px;
             text-decoration: none;
-            border-radius: 5px;
+            font-size: 0.9rem;
             font-weight: 500;
+            display: inline-block;
             transition: background 0.3s;
         }
 
-        .btn:hover {
+        .btn-small:hover {
             background: var(--primary);
             color: var(--text-light);
         }
@@ -240,57 +268,95 @@
         /* About Section */
         .about-section {
             background: var(--accent);
-            padding: 4rem 0;
+            padding: 60px 0;
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
             align-items: center;
         }
 
         .about-text h2 {
-            color: var(--primary);
             font-size: 2rem;
-            margin-bottom: 1rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-dark);
         }
 
         .feature-list {
-            list-style: none;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            list-style: none;
         }
 
-        .feature-list li::before {
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-list li:before {
             content: "✓";
             color: var(--primary);
             font-weight: bold;
-            margin-right: 0.5rem;
         }
 
         .about-image {
             background: var(--primary);
             color: var(--text-light);
-            padding: 3rem;
+            padding: 30px;
             border-radius: 10px;
             text-align: center;
+        }
+
+        /* Teacher Cards */
+        .teacher-card {
+            text-align: center;
+        }
+
+        .teacher-card .teacher-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 20px auto 15px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            border: 4px solid var(--primary);
+        }
+
+        .teacher-card h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .teacher-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
         }
 
         /* Statistics */
         .stats-section {
             background: var(--primary);
             color: var(--text-light);
-            padding: 3rem 0;
+            padding: 40px 0;
+            text-align: center;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            text-align: center;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
 
         .stat-item h3 {
@@ -298,71 +364,54 @@
             color: var(--accent);
         }
 
-        /* Teachers */
-        .teacher-card {
-            text-align: center;
-        }
-
-        .teacher-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            border: 4px solid var(--accent);
-        }
-
-        .teacher-card h4 {
-            color: var(--primary);
-        }
-
-        .teacher-card p {
-            color: var(--gray);
-        }
-
-        /* Publications / Products */
+        /* Publication / Product Cards */
         .product-card {
             text-align: center;
         }
 
         .product-card .price {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
+            margin: 10px 0;
         }
 
-        /* Contact Info & Newsletter */
-        .contact-newsletter {
+        /* Contact & Newsletter */
+        .contact-section {
             background: var(--background);
-            padding: 3rem 0;
+            padding: 60px 0;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
         }
 
         .contact-item {
             background: var(--text-light);
-            padding: 1.5rem;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .contact-item h4 {
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .contact-item p {
+            color: var(--gray);
+            margin-bottom: 5px;
         }
 
         .newsletter-form {
             display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 10px;
+            margin-top: 15px;
         }
 
         .newsletter-form input {
             flex: 1;
-            padding: 0.8rem;
+            padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
         }
@@ -371,7 +420,7 @@
             background: var(--primary);
             color: var(--text-light);
             border: none;
-            padding: 0.8rem 1.5rem;
+            padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
         }
@@ -380,28 +429,38 @@
         footer {
             background: var(--primary);
             color: var(--text-light);
-            padding: 2rem 0;
+            padding: 30px 0;
             text-align: center;
+        }
+
+        .social-links {
+            margin-top: 15px;
         }
 
         .social-links a {
             color: var(--accent);
-            margin: 0 0.5rem;
-            font-size: 1.5rem;
+            margin: 0 10px;
             text-decoration: none;
+            font-size: 1.2rem;
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .grid-3, .grid-4, .stats-grid, .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 60px;
+                top: 70px;
                 left: 0;
                 right: 0;
                 background: var(--primary);
                 flex-direction: column;
-                padding: 1rem;
+                padding: 20px;
                 text-align: center;
             }
 
@@ -421,8 +480,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 1.8rem;
+            .grid-3, .grid-4, .stats-grid, .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -430,14 +489,18 @@
 <body>
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">Ablinza <span>Metis</span></a>
+            <a href="#" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                Ablinza <span>Metis</span>
+            </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="#pages">PAGES</a></li>
+                <li><a href="#courses">COURSES</a></li>
+                <li><a href="#events">EVENTS</a></li>
+                <li><a href="#blog">BLOG</a></li>
+                <li><a href="#contact">CONTACT</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -451,15 +514,23 @@
     <section class="hero-reg" id="home">
         <div class="container">
             <div class="hero-text">
-                <h1>Empower Your Career with Ablinza Metis</h1>
-                <p>Join thousands of professionals who trust our training and consultancy. Get 50+ courses free for a limited time!</p>
+                <h1>Empower Your Future with Expert Training & Consultancy</h1>
+                <p>Join thousands of professionals who trust Ablinza Metis. Get 50+ courses free for a limited time!</p>
             </div>
             <div class="reg-form">
                 <h3>Register Now</h3>
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Email Address">
-                <input type="tel" placeholder="Phone Number">
-                <button>Get Started</button>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="E-Mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number">
+                    </div>
+                    <button type="submit" class="btn btn-block">Get Started</button>
+                </form>
             </div>
         </div>
     </section>
@@ -469,169 +540,213 @@
         <div class="container about-grid">
             <div class="about-text">
                 <h2>Welcome to Ablinza Metis</h2>
-                <p>We are Abdullah and Inza – a husband-and-wife team dedicated to helping organizations achieve excellence through integrated management systems: QMS, EMS, OH&S, Lean Six Sigma, FSMS, and more.</p>
+                <p>We are a dedicated team of experts helping organizations achieve excellence through integrated management systems: QMS, EMS, OH&S, Lean Six Sigma, FSMS, and more.</p>
                 <ul class="feature-list">
                     <li>Trending Courses</li>
                     <li>Certified Trainers</li>
-                    <li>Books & Resources</li>
-                    <li>Online Learning</li>
+                    <li>Books & Libraries</li>
+                    <li>Online Course</li>
                     <li>Practical Consultancy</li>
                     <li>Lab Facilities</li>
                 </ul>
             </div>
             <div class="about-image">
-                <p>📸 Your Success Is Our Mission</p>
+                <i class="fas fa-users fa-4x" style="margin-bottom: 20px;"></i>
+                <p>Your Success Is Our Mission</p>
             </div>
         </div>
     </section>
 
     <!-- Latest Courses -->
     <section class="container" id="courses">
-        <h2 class="section-title">Latest Courses</h2>
-        <div class="cards-grid">
+        <h2 class="section-title">Latest <span>Courses</span></h2>
+        <div class="grid-3">
             <div class="card">
-                <h3>Lean Six Sigma Green Belt</h3>
-                <div class="rating">★★★★★</div>
-                <p class="price">$299</p>
-                <a href="#" class="btn">Enroll Now</a>
+                <div class="card-content">
+                    <h3>Music Course</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="price">$30</p>
+                </div>
             </div>
             <div class="card">
-                <h3>ISO 9001:2025 Lead Auditor</h3>
-                <div class="rating">★★★★★</div>
-                <p class="price">$399</p>
-                <a href="#" class="btn">Enroll Now</a>
+                <div class="card-content">
+                    <h3>Music Course</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="price">$30</p>
+                </div>
             </div>
             <div class="card">
-                <h3>Food Safety Management (FSSC 22000)</h3>
-                <div class="rating">★★★★☆</div>
-                <p class="price">$349</p>
-                <a href="#" class="btn">Enroll Now</a>
+                <div class="card-content">
+                    <h3>Music Course</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="price">$30</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Our Teachers -->
     <section class="container">
-        <h2 class="section-title">Meet Our Experts</h2>
-        <div class="cards-grid">
+        <h2 class="section-title">Our <span>Teachers</span></h2>
+        <div class="grid-4">
             <div class="card teacher-card">
-                <img src="https://via.placeholder.com/120" alt="Abdullah">
-                <h4>Abdullah</h4>
-                <p>Lead Consultant, QMS & Lean Six Sigma</p>
+                <div class="teacher-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h4>John Smith</h4>
+                <p>Lead Consultant</p>
             </div>
             <div class="card teacher-card">
-                <img src="https://via.placeholder.com/120" alt="Inza">
-                <h4>Inza</h4>
-                <p>Senior Trainer, EMS & OH&S</p>
+                <div class="teacher-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h4>Jane Doe</h4>
+                <p>Senior Trainer</p>
             </div>
             <div class="card teacher-card">
-                <img src="https://via.placeholder.com/120" alt="John Doe">
-                <h4>John Doe</h4>
-                <p>Food Safety Specialist</p>
+                <div class="teacher-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h4>Michael Brown</h4>
+                <p>Web Developer</p>
             </div>
             <div class="card teacher-card">
-                <img src="https://via.placeholder.com/120" alt="Jane Smith">
-                <h4>Jane Smith</h4>
-                <p>Lead Auditor, ISO 45001</p>
+                <div class="teacher-icon">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h4>Emily Davis</h4>
+                <p>Art Professor</p>
             </div>
         </div>
     </section>
 
     <!-- Latest News -->
-    <section class="container" id="news">
-        <h2 class="section-title">Our Latest News</h2>
-        <div class="cards-grid">
+    <section class="container">
+        <h2 class="section-title">Our Latest <span>News</span></h2>
+        <div class="grid-3">
             <div class="card">
-                <div class="meta">June 21, 2026</div>
-                <h3>New ISO 14001 Update Released</h3>
-                <p>Learn about the key changes and how they impact your EMS.</p>
-                <a href="#" class="btn">Read More</a>
+                <div class="card-content">
+                    <div class="meta">June 21, 2020</div>
+                    <h3>While the lovely valley team work</h3>
+                    <a href="#" class="btn-small">READ MORE</a>
+                </div>
             </div>
             <div class="card">
-                <div class="meta">June 18, 2026</div>
-                <h3>Lean Six Sigma White Belt Free Webinar</h3>
-                <p>Join our free webinar and get certified.</p>
-                <a href="#" class="btn">Read More</a>
+                <div class="card-content">
+                    <div class="meta">June 21, 2020</div>
+                    <h3>I should be incapable of drawing</h3>
+                    <a href="#" class="btn-small">READ MORE</a>
+                </div>
             </div>
             <div class="card">
-                <div class="meta">June 15, 2026</div>
-                <h3>Food Safety Culture – Best Practices</h3>
-                <p>How to build a strong food safety culture in your organization.</p>
-                <a href="#" class="btn">Read More</a>
+                <div class="card-content">
+                    <div class="meta">June 21, 2020</div>
+                    <h3>I must explain to you how all this idea</h3>
+                    <a href="#" class="btn-small">READ MORE</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Latest Events -->
     <section class="container" id="events">
-        <h2 class="section-title">Upcoming Events</h2>
-        <div class="cards-grid">
+        <h2 class="section-title">Our Latest <span>Events</span></h2>
+        <div class="grid-3">
             <div class="card">
-                <div class="meta">05 SEP 2026</div>
-                <h3>Integrated Management Systems Workshop</h3>
-                <p>Learn to integrate QMS, EMS, and OH&S for efficiency.</p>
-                <a href="#" class="btn">Register</a>
+                <div class="card-content">
+                    <div class="meta">05 SEP</div>
+                    <h3>Eshkool Gala Day For Kids</h3>
+                    <p>Event Description. A party is a gathering of people who have been invited by a host for the purposes of...</p>
+                </div>
             </div>
             <div class="card">
-                <div class="meta">10 AUG 2026</div>
-                <h3>Lean Six Sigma Green Belt – Live Online</h3>
-                <p>4-week intensive training with certification.</p>
-                <a href="#" class="btn">Register</a>
+                <div class="card-content">
+                    <div class="meta">10 AUG</div>
+                    <h3>Kids Study Tour 2020.</h3>
+                    <p>Event Description. A party is a gathering of people who have been invited by a host for the purposes of...</p>
+                </div>
             </div>
             <div class="card">
-                <div class="meta">05 AUG 2026</div>
-                <h3>ISO 22000 Internal Auditor Course</h3>
-                <p>Become a certified internal auditor for food safety.</p>
-                <a href="#" class="btn">Register</a>
+                <div class="card-content">
+                    <div class="meta">05 AUG</div>
+                    <h3>Kids Drawing Content</h3>
+                    <p>Event Description. A party is a gathering of people who have been invited by a host for the purposes of...</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Statistics -->
+    <!-- Statistics / Social Media Counts -->
     <section class="stats-section">
         <div class="container stats-grid">
             <div class="stat-item">
-                <h3>60+</h3>
-                <p>Expert Trainers</p>
+                <h3>60</h3>
+                <p>TEACHERS</p>
             </div>
             <div class="stat-item">
-                <h3>40+</h3>
-                <p>Courses</p>
+                <h3>40</h3>
+                <p>COURSES</p>
             </div>
             <div class="stat-item">
-                <h3>900+</h3>
-                <p>Students Trained</p>
+                <h3>900</h3>
+                <p>STUDENTS</p>
             </div>
             <div class="stat-item">
-                <h3>50+</h3>
-                <p>Publications</p>
+                <h3>3675</h3>
+                <p>PUBLICATIONS</p>
             </div>
         </div>
     </section>
 
     <!-- Publications / Products -->
     <section class="container">
-        <h2 class="section-title">Our Resources</h2>
-        <div class="cards-grid">
+        <h2 class="section-title">Our <span>Publications</span></h2>
+        <div class="grid-4">
             <div class="card product-card">
-                <h3>QMS Toolkit</h3>
-                <p class="price">$40.00</p>
-                <a href="#" class="btn">Add to Cart</a>
+                <div class="card-content">
+                    <h3>Cake Box</h3>
+                    <p class="price">$40.00</p>
+                    <a href="#" class="btn-small">ADD TO CART</a>
+                </div>
             </div>
             <div class="card product-card">
-                <h3>EMS Checklist</h3>
-                <p class="price">$30.00</p>
-                <a href="#" class="btn">Add to Cart</a>
+                <div class="card-content">
+                    <h3>Coffee Mug</h3>
+                    <p class="price">$30.00</p>
+                    <a href="#" class="btn-small">ADD TO CART</a>
+                </div>
             </div>
             <div class="card product-card">
-                <h3>Lean Six Sigma Handbook</h3>
-                <p class="price">$35.00</p>
-                <a href="#" class="btn">Add to Cart</a>
+                <div class="card-content">
+                    <h3>Hand watch</h3>
+                    <p class="price">$35.00</p>
+                    <a href="#" class="btn-small">ADD TO CART</a>
+                </div>
             </div>
             <div class="card product-card">
-                <h3>OH&S Risk Assessment Template</h3>
-                <p class="price">$30.00</p>
-                <a href="#" class="btn">Add to Cart</a>
+                <div class="card-content">
+                    <h3>paint palette</h3>
+                    <p class="price">$30.00</p>
+                    <a href="#" class="btn-small">ADD TO CART</a>
+                </div>
             </div>
         </div>
     </section>
@@ -640,18 +755,18 @@
     <section class="about-section">
         <div class="container about-grid">
             <div class="about-text">
-                <h2>We Are the Best Choice</h2>
-                <p>5500+ professionals trust our online courses and consultancy. Our practical approach ensures you get real-world skills that you can apply immediately.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h2>We Are Best</h2>
+                <p>5500+ Students Trusted Our Best Online Courses. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
             </div>
             <div class="about-image">
-                <p>🏆 Excellence in Training</p>
+                <i class="fas fa-trophy fa-4x" style="margin-bottom: 20px;"></i>
+                <p>Excellence in Training</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Info & Newsletter -->
-    <section class="contact-newsletter" id="contact">
+    <!-- Recent Posts / Contact Info & Newsletter -->
+    <section class="contact-section" id="contact">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-item">
@@ -659,19 +774,19 @@
                     <p>503 Old Buffalo Street<br>Northwest #205, New York-3087</p>
                 </div>
                 <div class="contact-item">
-                    <h4>Phone</h4>
-                    <p>+1 (234) 567-890<br>+1 (234) 567-891</p>
+                    <h4>Phone Number</h4>
+                    <p>+123456789<br>+123456789</p>
                 </div>
                 <div class="contact-item">
-                    <h4>Email</h4>
-                    <p>info@ablinzametis.com<br>support@ablinzametis.com</p>
+                    <h4>Email Address</h4>
+                    <p>info@ablinzametis.com<br>www.ablinzametis.com</p>
                 </div>
                 <div class="contact-item">
                     <h4>Newsletter</h4>
-                    <p>Subscribe for latest updates</p>
+                    <p>Sign Up To Our Newsletter To Get Latest Updates & Services</p>
                     <div class="newsletter-form">
                         <input type="email" placeholder="Your email">
-                        <button>Sign Up</button>
+                        <button><i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
@@ -683,28 +798,31 @@
         <div class="container">
             <p>&copy; 2026 Ablinza Metis Trainings and Consultancy (Pvt.) Ltd. All rights reserved.</p>
             <div class="social-links">
-                <a href="#">LinkedIn</a> | <a href="#">Twitter</a> | <a href="#">Facebook</a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
 
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Smooth scroll
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                const targetId = link.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
-                // Close mobile menu after click
                 navLinks.classList.remove('active');
             });
         });
