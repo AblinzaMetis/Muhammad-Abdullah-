@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ablinza Metis Trainings & Consultancy</title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -52,18 +50,10 @@
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--text-light);
             text-decoration: none;
-        }
-
-        .logo i {
-            font-size: 2rem;
-            color: var(--accent);
         }
 
         .logo span {
@@ -321,18 +311,13 @@
             text-align: center;
         }
 
-        .teacher-card .teacher-icon {
+        .teacher-card img {
             width: 120px;
             height: 120px;
             border-radius: 50%;
+            object-fit: cover;
             margin: 20px auto 15px;
-            background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--primary);
-            border: 4px solid var(--primary);
+            border: 4px solid var(--accent);
         }
 
         .teacher-card h4 {
@@ -485,14 +470,13 @@
             }
         }
     </style>
+    <!-- Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">
-                <i class="fas fa-graduation-cap"></i>
-                Ablinza <span>Metis</span>
-            </a>
+            <a href="#" class="logo">Ablinza <span>Metis</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">HOME</a></li>
                 <li><a href="#about">ABOUT US</a></li>
@@ -540,13 +524,13 @@
         <div class="container about-grid">
             <div class="about-text">
                 <h2>Welcome to Ablinza Metis</h2>
-                <p>We are a dedicated team of experts helping organizations achieve excellence through integrated management systems: QMS, EMS, OH&S, Lean Six Sigma, FSMS, and more.</p>
+                <p>We are Abdullah and Inza – a husband-and-wife team dedicated to helping organizations achieve excellence through integrated management systems: QMS, EMS, OH&S, Lean Six Sigma, FSMS, and more.</p>
                 <ul class="feature-list">
                     <li>Trending Courses</li>
                     <li>Certified Trainers</li>
                     <li>Books & Libraries</li>
                     <li>Online Course</li>
-                    <li>Practical Consultancy</li>
+                    <li>Shutters Portal</li>
                     <li>Lab Facilities</li>
                 </ul>
             </div>
@@ -608,31 +592,23 @@
         <h2 class="section-title">Our <span>Teachers</span></h2>
         <div class="grid-4">
             <div class="card teacher-card">
-                <div class="teacher-icon">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <h4>John Smith</h4>
+                <img src="https://via.placeholder.com/120" alt="Abdullah">
+                <h4>Abdullah</h4>
                 <p>Lead Consultant</p>
             </div>
             <div class="card teacher-card">
-                <div class="teacher-icon">
-                    <i class="fas fa-user-graduate"></i>
-                </div>
-                <h4>Jane Doe</h4>
+                <img src="https://via.placeholder.com/120" alt="Inza">
+                <h4>Inza</h4>
                 <p>Senior Trainer</p>
             </div>
             <div class="card teacher-card">
-                <div class="teacher-icon">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-                <h4>Michael Brown</h4>
+                <img src="https://via.placeholder.com/120" alt="John Doe">
+                <h4>John Doe</h4>
                 <p>Web Developer</p>
             </div>
             <div class="card teacher-card">
-                <div class="teacher-icon">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-                <h4>Emily Davis</h4>
+                <img src="https://via.placeholder.com/120" alt="Aden Hezard">
+                <h4>Aden Hezard</h4>
                 <p>Art Professor</p>
             </div>
         </div>
