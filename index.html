@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ablinza Metis Trainings & Consultancy</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -17,8 +19,8 @@
             --accent: #C8D9E6;
             --text-dark: #2F4156;
             --text-light: #FFFFFF;
-            --gray-light: #f8f9fa;
             --gray: #6c757d;
+            --light-gray: #f8f9fa;
         }
 
         body {
@@ -50,10 +52,18 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--text-light);
             text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--accent);
         }
 
         .logo span {
@@ -90,83 +100,43 @@
             margin: 3px 0;
         }
 
-        /* Hero + Registration */
-        .hero-reg {
+        /* Hero with countdown */
+        .hero {
             background: linear-gradient(135deg, var(--primary) 0%, #3f5a78 100%);
             color: var(--text-light);
             padding: 60px 0;
+            text-align: center;
         }
 
-        .hero-reg .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-text h1 {
+        .hero h2 {
             font-size: 2.5rem;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        .reg-form {
-            background: var(--text-light);
-            padding: 30px;
-            border-radius: 10px;
-            color: var(--text-dark);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .reg-form h3 {
-            font-size: 1.5rem;
             margin-bottom: 20px;
-            color: var(--primary);
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
         }
 
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
+        .countdown-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 100px;
         }
 
-        .btn {
-            background: var(--primary);
-            color: var(--text-light);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            display: inline-block;
-            text-decoration: none;
+        .countdown-item span {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
         }
 
-        .btn:hover {
-            background: #1f2e3f;
-        }
-
-        .btn-block {
-            width: 100%;
-        }
-
-        /* Section Titles */
+        /* Section titles */
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 40px;
             color: var(--primary);
             font-weight: 600;
@@ -176,17 +146,78 @@
             color: var(--accent);
         }
 
-        /* Cards Grid */
+        /* About section */
+        .about {
+            padding: 60px 0;
+            background: var(--background);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .feature-grid li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-grid li i {
+            color: var(--primary);
+        }
+
+        .founder-card {
+            background: var(--accent);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .founder-card i {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .founder-card h3 {
+            font-size: 1.5rem;
+        }
+
+        /* Cards grid */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            margin-bottom: 40px;
         }
 
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
+            margin-bottom: 40px;
         }
 
         .card {
@@ -194,7 +225,7 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s;
         }
 
         .card:hover {
@@ -207,7 +238,7 @@
         }
 
         .card h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
             color: var(--primary);
         }
@@ -231,11 +262,7 @@
         .price {
             font-weight: 700;
             color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .card-footer {
-            margin-top: 15px;
+            font-size: 1.1rem;
         }
 
         .btn-small {
@@ -255,83 +282,8 @@
             color: var(--text-light);
         }
 
-        /* About Section */
-        .about-section {
-            background: var(--accent);
-            padding: 60px 0;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-
-        .feature-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            list-style: none;
-        }
-
-        .feature-list li {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .feature-list li:before {
-            content: "✓";
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .about-image {
-            background: var(--primary);
-            color: var(--text-light);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        /* Teacher Cards */
-        .teacher-card {
-            text-align: center;
-        }
-
-        .teacher-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 20px auto 15px;
-            border: 4px solid var(--accent);
-        }
-
-        .teacher-card h4 {
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-
-        .teacher-card p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
         /* Statistics */
-        .stats-section {
+        .stats {
             background: var(--primary);
             color: var(--text-light);
             padding: 40px 0;
@@ -349,7 +301,7 @@
             color: var(--accent);
         }
 
-        /* Publication / Product Cards */
+        /* Publication products */
         .product-card {
             text-align: center;
         }
@@ -358,56 +310,76 @@
             margin: 10px 0;
         }
 
-        /* Contact & Newsletter */
-        .contact-section {
-            background: var(--background);
+        /* We Are Best */
+        .best-section {
+            background: var(--accent);
             padding: 60px 0;
         }
 
-        .contact-grid {
+        .best-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
 
-        .contact-item {
+        .best-text h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .best-text p {
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .best-image {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #1f2e3f;
+        }
+
+        /* Graduation highlights */
+        .grad-section {
+            padding: 60px 0;
+        }
+
+        .grad-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .grad-card {
             background: var(--text-light);
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .contact-item h4 {
+        .grad-card h3 {
+            font-size: 1.8rem;
             color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .contact-item p {
-            color: var(--gray);
-            margin-bottom: 5px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .newsletter-form button {
-            background: var(--primary);
-            color: var(--text-light);
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
+            margin-bottom: 10px;
         }
 
         /* Footer */
@@ -425,13 +397,12 @@
         .social-links a {
             color: var(--accent);
             margin: 0 10px;
-            text-decoration: none;
             font-size: 1.2rem;
         }
 
         /* Responsive */
         @media (max-width: 992px) {
-            .grid-3, .grid-4, .stats-grid, .contact-grid {
+            .grid-3, .grid-4, .stats-grid, .grad-grid, .about-grid, .best-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -448,42 +419,37 @@
                 padding: 20px;
                 text-align: center;
             }
-
             .nav-links.active {
                 display: flex;
             }
-
             .hamburger {
                 display: flex;
             }
-
-            .hero-reg .container {
-                grid-template-columns: 1fr;
+            .hero h2 {
+                font-size: 2rem;
             }
-
-            .about-grid {
-                grid-template-columns: 1fr;
+            .countdown {
+                flex-wrap: wrap;
             }
-
-            .grid-3, .grid-4, .stats-grid, .contact-grid {
+            .grid-3, .grid-4, .stats-grid, .grad-grid, .about-grid, .best-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
-    <!-- Font Awesome for icons (optional) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">Ablinza <span>Metis</span></a>
+            <a href="#" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                Ablinza <span>Metis</span>
+            </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">HOME</a></li>
                 <li><a href="#about">ABOUT US</a></li>
-                <li><a href="#pages">PAGES</a></li>
                 <li><a href="#courses">COURSES</a></li>
+                <li><a href="#news">NEWS</a></li>
                 <li><a href="#events">EVENTS</a></li>
-                <li><a href="#blog">BLOG</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -494,49 +460,50 @@
         </div>
     </nav>
 
-    <!-- Hero + Registration -->
-    <section class="hero-reg" id="home">
+    <!-- Hero with countdown -->
+    <section class="hero" id="home">
         <div class="container">
-            <div class="hero-text">
-                <h1>Empower Your Future with Expert Training & Consultancy</h1>
-                <p>Join thousands of professionals who trust Ablinza Metis. Get 50+ courses free for a limited time!</p>
-            </div>
-            <div class="reg-form">
-                <h3>Register Now</h3>
-                <form>
-                    <div class="form-group">
-                        <input type="text" placeholder="Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="E-Mail" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Phone Number">
-                    </div>
-                    <button type="submit" class="btn btn-block">Get Started</button>
-                </form>
+            <h2>REGISTERS NOW</h2>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span>1890</span>
+                    Days
+                </div>
+                <div class="countdown-item">
+                    <span>0</span>
+                    Hours
+                </div>
+                <div class="countdown-item">
+                    <span>42</span>
+                    Minutes
+                </div>
+                <div class="countdown-item">
+                    <span>54</span>
+                    Seconds
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Us -->
-    <section class="about-section" id="about">
+    <section class="about" id="about">
         <div class="container about-grid">
             <div class="about-text">
-                <h2>Welcome to Ablinza Metis</h2>
-                <p>We are Abdullah and Inza – a husband-and-wife team dedicated to helping organizations achieve excellence through integrated management systems: QMS, EMS, OH&S, Lean Six Sigma, FSMS, and more.</p>
-                <ul class="feature-list">
-                    <li>Trending Courses</li>
-                    <li>Certified Trainers</li>
-                    <li>Books & Libraries</li>
-                    <li>Online Course</li>
-                    <li>Shutters Portal</li>
-                    <li>Lab Facilities</li>
+                <h2>WELCOME TO ABLINZA METIS</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eius to mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur gravida nibh id elit, tempus velit nec ultricies sed. Etiam pretium iaculis tellus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <ul class="feature-grid">
+                    <li><i class="fas fa-check-circle"></i> Trending Courses</li>
+                    <li><i class="fas fa-check-circle"></i> Books & Libraries</li>
+                    <li><i class="fas fa-check-circle"></i> Students Portal</li>
+                    <li><i class="fas fa-check-circle"></i> Certified Teachers</li>
+                    <li><i class="fas fa-check-circle"></i> Online Course</li>
+                    <li><i class="fas fa-check-circle"></i> Lab Facilities</li>
                 </ul>
             </div>
-            <div class="about-image">
-                <i class="fas fa-users fa-4x" style="margin-bottom: 20px;"></i>
-                <p>Your Success Is Our Mission</p>
+            <div class="founder-card">
+                <i class="fas fa-user-tie"></i>
+                <h3>Rashid Mahabub</h3>
+                <p>Chairman and founder</p>
             </div>
         </div>
     </section>
@@ -555,7 +522,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="price">$30</p>
+                    <p class="price">Free</p>
                 </div>
             </div>
             <div class="card">
@@ -568,7 +535,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="price">$30</p>
+                    <p class="price">Free</p>
                 </div>
             </div>
             <div class="card">
@@ -579,43 +546,16 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <p class="price">$30</p>
+                    <p class="price">Free</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Teachers -->
-    <section class="container">
-        <h2 class="section-title">Our <span>Teachers</span></h2>
-        <div class="grid-4">
-            <div class="card teacher-card">
-                <img src="https://via.placeholder.com/120" alt="Abdullah">
-                <h4>Abdullah</h4>
-                <p>Lead Consultant</p>
-            </div>
-            <div class="card teacher-card">
-                <img src="https://via.placeholder.com/120" alt="Inza">
-                <h4>Inza</h4>
-                <p>Senior Trainer</p>
-            </div>
-            <div class="card teacher-card">
-                <img src="https://via.placeholder.com/120" alt="John Doe">
-                <h4>John Doe</h4>
-                <p>Web Developer</p>
-            </div>
-            <div class="card teacher-card">
-                <img src="https://via.placeholder.com/120" alt="Aden Hezard">
-                <h4>Aden Hezard</h4>
-                <p>Art Professor</p>
             </div>
         </div>
     </section>
 
     <!-- Latest News -->
-    <section class="container">
+    <section class="container" id="news">
         <h2 class="section-title">Our Latest <span>News</span></h2>
         <div class="grid-3">
             <div class="card">
@@ -670,8 +610,8 @@
         </div>
     </section>
 
-    <!-- Statistics / Social Media Counts -->
-    <section class="stats-section">
+    <!-- Statistics -->
+    <section class="stats">
         <div class="container stats-grid">
             <div class="stat-item">
                 <h3>60</h3>
@@ -692,9 +632,9 @@
         </div>
     </section>
 
-    <!-- Publications / Products -->
+    <!-- Publications -->
     <section class="container">
-        <h2 class="section-title">Our <span>Publications</span></h2>
+        <h2 class="section-title">Our <span>Publication</span></h2>
         <div class="grid-4">
             <div class="card product-card">
                 <div class="card-content">
@@ -728,49 +668,40 @@
     </section>
 
     <!-- We Are Best -->
-    <section class="about-section">
-        <div class="container about-grid">
-            <div class="about-text">
-                <h2>We Are Best</h2>
+    <section class="best-section">
+        <div class="container best-grid">
+            <div class="best-text">
+                <h2>WE ARE BEST</h2>
                 <p>5500+ Students Trusted Our Best Online Courses. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <a href="#" class="btn">JOIN WITH US</a>
             </div>
-            <div class="about-image">
+            <div class="best-image">
                 <i class="fas fa-trophy fa-4x" style="margin-bottom: 20px;"></i>
                 <p>Excellence in Training</p>
             </div>
         </div>
     </section>
 
-    <!-- Recent Posts / Contact Info & Newsletter -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <h4>Address</h4>
-                    <p>503 Old Buffalo Street<br>Northwest #205, New York-3087</p>
-                </div>
-                <div class="contact-item">
-                    <h4>Phone Number</h4>
-                    <p>+123456789<br>+123456789</p>
-                </div>
-                <div class="contact-item">
-                    <h4>Email Address</h4>
-                    <p>info@ablinzametis.com<br>www.ablinzametis.com</p>
-                </div>
-                <div class="contact-item">
-                    <h4>Newsletter</h4>
-                    <p>Sign Up To Our Newsletter To Get Latest Updates & Services</p>
-                    <div class="newsletter-form">
-                        <input type="email" placeholder="Your email">
-                        <button><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                </div>
+    <!-- Graduation Highlights -->
+    <section class="grad-section">
+        <div class="container grad-grid">
+            <div class="grad-card">
+                <h3>SCIENCE GRADUATES</h3>
+                <p>HIGH COLLEGE 2016 - 2018</p>
+            </div>
+            <div class="grad-card">
+                <h3>UNIVERSITY GRADUATES</h3>
+                <p>2016</p>
+            </div>
+            <div class="grad-card">
+                <h3>CONGRATS TO YOU!</h3>
+                <p>YOU DID IT! CLASS OF 2016</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
             <p>&copy; 2026 Ablinza Metis Trainings and Consultancy (Pvt.) Ltd. All rights reserved.</p>
             <div class="social-links">
@@ -787,10 +718,8 @@
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
-
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', (e) => {
-                // Smooth scroll
                 e.preventDefault();
                 const targetId = link.getAttribute('href');
                 if (targetId && targetId !== '#') {
