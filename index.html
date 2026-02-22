@@ -105,7 +105,7 @@
             top: 100%;
             left: 0;
             background-color: var(--primary);
-            min-width: 220px;
+            min-width: 240px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             border-radius: 5px;
             padding: 10px 0;
@@ -221,7 +221,7 @@
         .section-title {
             text-align: center;
             font-size: 2.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;  /* Reduced from 40px */
             color: var(--primary);
             font-weight: 600;
             text-transform: uppercase;
@@ -279,12 +279,19 @@
         .rating {
             color: #f8c51c;
             margin: 10px 0;
+            font-size: 0.9rem;
         }
 
         .price {
             font-weight: 700;
             color: var(--primary);
             font-size: 1.2rem;
+        }
+
+        .students-count {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 5px;
         }
 
         .btn-small {
@@ -356,33 +363,27 @@
             text-align: center;
         }
 
-        /* Statistics */
-        .stats-section {
-            background: var(--primary);
-            color: var(--text-light);
-            padding: 40px 0;
+        /* Why Choose Us cards */
+        .why-choose-card {
             text-align: center;
-            margin-bottom: 40px;
+            padding: 30px 20px;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+        .why-choose-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
         }
 
-        .stat-item h3 {
+        /* Publication Cards (no price/cart) */
+        .publication-card {
+            text-align: center;
+        }
+
+        .publication-card i {
             font-size: 2.5rem;
-            color: var(--accent);
-        }
-
-        /* Publication / Product Cards */
-        .product-card {
-            text-align: center;
-        }
-
-        .product-card .price {
-            margin: 10px 0;
+            color: var(--primary);
+            margin-bottom: 10px;
         }
 
         /* Verification Section */
@@ -485,7 +486,7 @@
 
         /* Responsive */
         @media (max-width: 992px) {
-            .grid-3, .grid-4, .stats-grid, .contact-grid {
+            .grid-3, .grid-4, .contact-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -520,11 +521,11 @@
             }
 
             .nav-links li:hover .dropdown-menu {
-                display: none; /* No hover on mobile */
+                display: none;
             }
 
             .nav-links li.active .dropdown-menu {
-                display: block; /* Toggle with JS if needed */
+                display: block;
             }
 
             .hero-reg .container {
@@ -535,7 +536,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .grid-3, .grid-4, .stats-grid, .contact-grid {
+            .grid-3, .grid-4, .contact-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -556,10 +557,10 @@
                 <li class="dropdown">
                     <a href="#">ABOUT US ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a href="about-mission.html">OUR MISSION</a></li>
-                        <li><a href="about-vision.html">OUR VISION</a></li>
-                        <li><a href="about-values.html">OUR VALUES</a></li>
-                        <li><a href="about-history.html">OUR HISTORY</a></li>
+                        <li><a href="#">OUR MISSION</a></li>
+                        <li><a href="#">OUR VISION</a></li>
+                        <li><a href="#">OUR VALUES</a></li>
+                        <li><a href="#">OUR HISTORY</a></li>
                         <li><a href="policies/quality-policy.pdf" target="_blank">QUALITY POLICY</a></li>
                         <li><a href="policies/ehs-policy.pdf" target="_blank">ENVIRONMENT, HEALTH AND SAFETY POLICY</a></li>
                         <li><a href="org-chart.pdf" target="_blank">ORGANIZATIONAL CHART</a></li>
@@ -568,8 +569,8 @@
                 <li class="dropdown">
                     <a href="#">OUR SERVICES ▾</a>
                     <ul class="dropdown-menu">
-                        <li><a href="services-trainings.html">TRAININGS</a></li>
-                        <li><a href="services-consultancy.html">CONSULTANCY</a></li>
+                        <li><a href="#">TRAININGS</a></li>
+                        <li><a href="#">CONSULTANCY</a></li>
                     </ul>
                 </li>
                 <li><a href="#courses">COURSES</a></li>
@@ -577,14 +578,14 @@
                     <a href="#">RESOURCES ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="resources/training-calendar.pdf" target="_blank">TRAINING CALENDAR</a></li>
-                        <li><a href="resources/brochure.pdf" target="_blank">TRAINING CATALOGUE</a></li>
-                        <li><a href="resources/profile.pdf" target="_blank">COMPANY PROFILE</a></li>
+                        <li><a href="resources/brochure.pdf" target="_blank">BROCHURE</a></li>
+                        <li><a href="resources/profile.pdf" target="_blank">PROFILE</a></li>
                         <li><a href="resources/complaint-appeal-form.pdf" target="_blank">COMPLAINT AND APPEAL FORM</a></li>
-                        <li><a href="resources/process-flow.pdf" target="_blank">TRAINING PROCESS FLOW</a></li>
+                        <li><a href="resources/process-flow.pdf" target="_blank">PROCESS FLOW</a></li>
                     </ul>
                 </li>
-                <li><a href="#blog">BLOG</a></li>
-                <li><a href="#contact">CONTACT US</a></li>
+                <li><a href="#blog">BLOGS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
                 <li><a href="#verification">VERIFICATIONS</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -600,7 +601,7 @@
         <div class="container">
             <div class="hero-text">
                 <h1>Empower Your Future with Expert Training & Consultancy</h1>
-                <p>Join thousands of professionals who trust Ablinza Metis (AMTC). Get free courses for a limited time!</p>
+                <p>Join thousands of professionals who trust Ablinza Metis (AMTC). Get certified in ISO standards, Lean Six Sigma, and more.</p>
             </div>
             <div class="reg-form">
                 <h3>Register Now</h3>
@@ -625,7 +626,7 @@
         <div class="container about-grid">
             <div class="about-text">
                 <h2>Welcome to Ablinza Metis</h2>
-                <p>We are a dedicated team of experts helping organizations achieve excellence through integrated management systems: QMS, EMS, OH&S, Lean Six Sigma, FSMS, and more.</p>
+                <p>We are a dedicated team of experts helping organizations achieve excellence through integrated management systems: QMS (ISO 9001), EMS (ISO 14001), OH&S (ISO 45001), Lean Six Sigma, FSMS (ISO 22000), and more. Our training and consultancy services are tailored to your needs.</p>
                 <ul class="feature-list">
                     <li>Trending Courses</li>
                     <li>Certified Trainers</li>
@@ -642,47 +643,152 @@
         </div>
     </section>
 
-    <!-- Latest Courses -->
+    <!-- Latest Courses (9 courses) -->
     <section class="container" id="courses">
         <h2 class="section-title">LATEST COURSES</h2>
         <div class="grid-3">
+            <!-- Course 1 -->
             <div class="card">
+                <div style="background: var(--accent); height: 120px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-certificate fa-4x" style="color: var(--primary);"></i>
+                </div>
                 <div class="card-content">
-                    <h3>Music Course</h3>
+                    <h3>ISO 9001:2015 Lead Auditor</h3>
+                    <p>Master the skills to audit quality management systems.</p>
+                    <div><strong>Mode:</strong> VILT</div>
                     <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
                     </div>
-                    <p class="price">$30</p>
+                    <div class="price">$450</div>
+                    <div class="students-count"><i class="fas fa-users"></i> 120+ students</div>
                 </div>
             </div>
+            <!-- Course 2 -->
             <div class="card">
+                <div style="background: var(--accent); height: 120px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-leaf fa-4x" style="color: var(--primary);"></i>
+                </div>
                 <div class="card-content">
-                    <h3>Music Course</h3>
+                    <h3>ISO 14001:2015 Environmental Management</h3>
+                    <p>Implement and audit EMS effectively.</p>
+                    <div><strong>Mode:</strong> VILT</div>
                     <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.8)
                     </div>
-                    <p class="price">$30</p>
+                    <div class="price">$420</div>
+                    <div class="students-count"><i class="fas fa-users"></i> 95+ students</div>
                 </div>
             </div>
+            <!-- Course 3 -->
             <div class="card">
+                <div style="background: var(--accent); height: 120px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-shield-alt fa-4x" style="color: var(--primary);"></i>
+                </div>
                 <div class="card-content">
-                    <h3>Music Course</h3>
+                    <h3>ISO 45001:2018 OH&S</h3>
+                    <p>Develop a robust occupational health & safety system.</p>
+                    <div><strong>Mode:</strong> VILT</div>
                     <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.7)
                     </div>
-                    <p class="price">$30</p>
+                    <div class="price">$430</div>
+                    <div class="students-count"><i class="fas fa-users"></i> 80+ students</div>
+                </div>
+            </div>
+            <!-- Course 4 -->
+            <div class="card">
+                <div style="background: var(--accent); height: 120px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-chart-line fa-4x" style="color: var(--primary);"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Lean Six Sigma Green Belt</h3>
+                    <p>Drive process improvement with DMAIC.</p>
+                    <div><strong>Mode:</strong> VILT</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
+                    </div>
+                    <div class="price">$550</div>
+                    <div class="students-count"><i class="fas fa-users"></i> 200+ students</div>
+                </div>
+            </div>
+            <!-- Course 5 -->
+            <div class="card">
+                <div style="background: var(--accent); height: 120px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-utensils fa-4x" style="color: var(--primary);"></i>
+                </div>
+                <div class="card-content">
+                    <h3>ISO 22000:2018 Food Safety</h3>
+                    <p>Manage food safety hazards effectively.</p>
+                    <div><strong>Mode:</strong> VILT</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
+                    </div>
+                    <div class="price">$460</div>
+                    <div class="students-count"><i class="fas fa-users"></i> 70+ students</div>
+                </div>
+            </div>
+            <!-- Course 6 -->
+            <div class="card">
+                <div style="background: var(--accent); height: 120px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-clipboard-check fa-4x" style="color: var(--primary);"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Internal Auditor Course (All ISO)</h3>
+                    <p>Learn to conduct internal audits for multiple standards.</p>
+                    <div><strong>Mode:</strong> VILT</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.6)
+                    </div>
+                    <div class="price">$380</div>
+                    <div class="students-count"><i class="fas fa-users"></i> 150+ students</div>
+                </div>
+            </div>
+            <!-- Course 7 -->
+            <div class="card">
+                <div style="background: var(--accent); height: 120px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-cogs fa-4x" style="color: var(--primary);"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Lean Six Sigma Black Belt</h3>
+                    <p>Master advanced statistical analysis and leadership.</p>
+                    <div><strong>Mode:</strong> VILT</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
+                    </div>
+                    <div class="price">$750</div>
+                    <div class="students-count"><i class="fas fa-users"></i> 60+ students</div>
+                </div>
+            </div>
+            <!-- Course 8 -->
+            <div class="card">
+                <div style="background: var(--accent); height: 120px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-biohazard fa-4x" style="color: var(--primary);"></i>
+                </div>
+                <div class="card-content">
+                    <h3>ISO 45001 Lead Implementer</h3>
+                    <p>Implement OH&S management systems from scratch.</p>
+                    <div><strong>Mode:</strong> VILT</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.8)
+                    </div>
+                    <div class="price">$490</div>
+                    <div class="students-count"><i class="fas fa-users"></i> 55+ students</div>
+                </div>
+            </div>
+            <!-- Course 9 -->
+            <div class="card">
+                <div style="background: var(--accent); height: 120px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-flask fa-4x" style="color: var(--primary);"></i>
+                </div>
+                <div class="card-content">
+                    <h3>ISO 17025 Laboratory Management</h3>
+                    <p>Accreditation requirements for testing labs.</p>
+                    <div><strong>Mode:</strong> VILT</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.5)
+                    </div>
+                    <div class="price">$520</div>
+                    <div class="students-count"><i class="fas fa-users"></i> 40+ students</div>
                 </div>
             </div>
         </div>
@@ -692,144 +798,111 @@
     <section class="container">
         <h2 class="section-title">WHY CHOOSE US</h2>
         <div class="grid-4">
-            <div class="card">
-                <div class="card-content" style="text-align: center;">
-                    <i class="fas fa-check-circle fa-3x" style="color: var(--primary); margin-bottom: 15px;"></i>
-                    <h3>Competent Trainers</h3>
-                    <p>Our trainers are industry experts with years of practical experience.</p>
-                </div>
+            <div class="card why-choose-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Competent Trainers</h3>
+                <p>Our trainers are industry experts with years of practical experience.</p>
             </div>
-            <div class="card">
-                <div class="card-content" style="text-align: center;">
-                    <i class="fas fa-certificate fa-3x" style="color: var(--primary); margin-bottom: 15px;"></i>
-                    <h3>Accredited Trainings</h3>
-                    <p>All our courses are internationally accredited and recognized.</p>
-                </div>
+            <div class="card why-choose-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Accredited Trainings</h3>
+                <p>All our courses are internationally accredited and recognized.</p>
             </div>
-            <div class="card">
-                <div class="card-content" style="text-align: center;">
-                    <i class="fas fa-users fa-3x" style="color: var(--primary); margin-bottom: 15px;"></i>
-                    <h3>Practical Approach</h3>
-                    <p>We focus on hands-on learning and real-world applications.</p>
-                </div>
+            <div class="card why-choose-card">
+                <i class="fas fa-users"></i>
+                <h3>Practical Approach</h3>
+                <p>We focus on hands-on learning and real-world applications.</p>
             </div>
-            <div class="card">
-                <div class="card-content" style="text-align: center;">
-                    <i class="fas fa-globe fa-3x" style="color: var(--primary); margin-bottom: 15px;"></i>
-                    <h3>Global Recognition</h3>
-                    <p>Our certifications are valued by employers worldwide.</p>
-                </div>
+            <div class="card why-choose-card">
+                <i class="fas fa-globe"></i>
+                <h3>Global Recognition</h3>
+                <p>Our certifications are valued by employers worldwide.</p>
             </div>
         </div>
     </section>
+
     <!-- Latest News -->
     <section class="container">
         <h2 class="section-title">LATEST NEWS</h2>
         <div class="grid-3">
             <div class="card">
                 <div class="card-content">
-                    <div class="meta">June 21, 2020</div>
-                    <h3>While the lovely valley team work</h3>
+                    <div class="meta">February 15, 2026</div>
+                    <h3>New ISO 9001:2025 Update Released</h3>
+                    <p>We now offer training on the latest ISO 9001 amendments.</p>
                     <a href="#" class="btn-small">READ MORE</a>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
-                    <div class="meta">June 21, 2020</div>
-                    <h3>I should be incapable of drawing</h3>
+                    <div class="meta">January 28, 2026</div>
+                    <h3>AMTC Partners with Global Accreditation Body</h3>
+                    <p>Our courses now carry international recognition.</p>
                     <a href="#" class="btn-small">READ MORE</a>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
-                    <div class="meta">June 21, 2020</div>
-                    <h3>I must explain to you how all this idea</h3>
+                    <div class="meta">January 10, 2026</div>
+                    <h3>Free Webinar: Lean Six Sigma White Belt</h3>
+                    <p>Join our free introductory session on Feb 5.</p>
                     <a href="#" class="btn-small">READ MORE</a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Latest Events (now Resources but we keep the section for consistency) -->
+
+    <!-- Latest Events -->
     <section class="container" id="events">
         <h2 class="section-title">LATEST EVENTS</h2>
         <div class="grid-3">
             <div class="card">
                 <div class="card-content">
-                    <div class="meta">05 SEP</div>
-                    <h3>Eshkool Gala Day For Kids</h3>
-                    <p>Event Description. A party is a gathering of people who have been invited by a host for the purposes of...</p>
+                    <div class="meta">05 MAR 2026</div>
+                    <h3>ISO 45001 Lead Auditor Course</h3>
+                    <p>5-day virtual instructor-led training. Early bird discount.</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
-                    <div class="meta">10 AUG</div>
-                    <h3>Kids Study Tour 2020.</h3>
-                    <p>Event Description. A party is a gathering of people who have been invited by a host for the purposes of...</p>
+                    <div class="meta">12 MAR 2026</div>
+                    <h3>Integrated Management Systems Workshop</h3>
+                    <p>Learn to combine QMS, EMS, OH&S efficiently.</p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-content">
-                    <div class="meta">05 AUG</div>
-                    <h3>Kids Drawing Content</h3>
-                    <p>Event Description. A party is a gathering of people who have been invited by a host for the purposes of...</p>
+                    <div class="meta">20 MAR 2026</div>
+                    <h3>Food Safety Culture Conference</h3>
+                    <p>Online event with industry leaders.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Statistics -->
-    <section class="stats-section">
-        <div class="container stats-grid">
-            <div class="stat-item">
-                <h3>7+</h3>
-                <p>TEACHERS</p>
-            </div>
-            <div class="stat-item">
-                <h3>50+</h3>
-                <p>COURSES</p>
-            </div>
-            <div class="stat-item">
-                <h3>900+</h3>
-                <p>STUDENTS</p>
-            </div>
-            <div class="stat-item">
-                <h3>100+</h3>
-                <p>PUBLICATIONS</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications -->
+    <!-- Publications (Free Resources) -->
     <section class="container">
         <h2 class="section-title">PUBLICATIONS</h2>
         <div class="grid-4">
-            <div class="card product-card">
-                <div class="card-content">
-                    <h3>Climate Change</h3>
-                    <p class="price">$40.00</p>
-                    <a href="#" class="btn-small">ADD TO CART</a>
-                </div>
+            <div class="card publication-card">
+                <i class="fas fa-file-pdf"></i>
+                <h3>Quality Manual Template</h3>
+                <a href="#" class="btn-small">DOWNLOAD</a>
             </div>
-            <div class="card product-card">
-                <div class="card-content">
-                    <h3>Fire Safety</h3>
-                    <p class="price">$30.00</p>
-                    <a href="#" class="btn-small">ADD TO CART</a>
-                </div>
+            <div class="card publication-card">
+                <i class="fas fa-file-excel"></i>
+                <h3>EMS Checklist</h3>
+                <a href="#" class="btn-small">DOWNLOAD</a>
             </div>
-            <div class="card product-card">
-                <div class="card-content">
-                    <h3>Lean Six Sigma</h3>
-                    <p class="price">$35.00</p>
-                    <a href="#" class="btn-small">ADD TO CART</a>
-                </div>
+            <div class="card publication-card">
+                <i class="fas fa-file-word"></i>
+                <h3>Lean Six Sigma Green Belt Guide</h3>
+                <a href="#" class="btn-small">DOWNLOAD</a>
             </div>
-            <div class="card product-card">
-                <div class="card-content">
-                    <h3>Quality Tools</h3>
-                    <p class="price">$30.00</p>
-                    <a href="#" class="btn-small">ADD TO CART</a>
-                </div>
+            <div class="card publication-card">
+                <i class="fas fa-file-powerpoint"></i>
+                <h3>OH&S Risk Assessment Template</h3>
+                <a href="#" class="btn-small">DOWNLOAD</a>
             </div>
         </div>
     </section>
@@ -839,7 +912,7 @@
         <div class="container about-grid">
             <div class="about-text">
                 <h2>We Are Best</h2>
-                <p>900+ Students Trusted Our Best Online Courses. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>900+ Students Trusted Our Best Online Courses. We provide practical, up-to-date training that empowers professionals worldwide. Our pass rate is 98%, and our alumni work in leading organizations.</p>
             </div>
             <div class="about-image">
                 <i class="fas fa-trophy fa-4x" style="margin-bottom: 20px;"></i>
@@ -867,7 +940,7 @@
                 </div>
                 <div class="contact-item">
                     <h4>Phone Number</h4>
-                    <p>+123456789<br>+123456789</p>
+                    <p>+1 (234) 567-890<br>+1 (234) 567-891</p>
                 </div>
                 <div class="contact-item">
                     <h4>Email Address</h4>
@@ -890,13 +963,14 @@
         <div class="container">
             <div class="footer-details">
                 <p><strong>Ablinza Metis Trainings and Consultancy (AMTC)</strong></p>
-                <p>Office: 503 Old Buffalo Street, Northwest #205, New York-3087 | Phone: +123456789 | Email: info@ablinzametis.com</p>
+                <p>Office: 503 Old Buffalo Street, Northwest #205, New York-3087 | Phone: +1 (234) 567-890 | Email: info@ablinzametis.com</p>
                 <p>All policies, terms, and conditions apply. © 2026 AMTC. All rights reserved.</p>
             </div>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </footer>
@@ -910,7 +984,6 @@
 
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', (e) => {
-                // Smooth scroll for anchor links only
                 const href = link.getAttribute('href');
                 if (href && href.startsWith('#')) {
                     e.preventDefault();
@@ -919,7 +992,6 @@
                         targetElement.scrollIntoView({ behavior: 'smooth' });
                     }
                 }
-                // Close mobile menu after click
                 navLinks.classList.remove('active');
             });
         });
