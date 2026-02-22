@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ablinza Metis Trainings and Consultancy</title>
+    <title>Ablinza Metis Trainings & Consultancy</title>
     <style>
         * {
             margin: 0;
@@ -17,6 +17,8 @@
             --accent: #C8D9E6;
             --text-dark: #2F4156;
             --text-light: #FFFFFF;
+            --gray-light: #f0f0f0;
+            --gray: #666;
         }
 
         body {
@@ -26,29 +28,37 @@
             background-color: var(--background);
         }
 
-        /* Navigation Bar */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
         nav {
             background-color: var(--primary);
-            padding: 1rem 2rem;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
             color: var(--text-light);
+            font-size: 1.8rem;
+            font-weight: 600;
             text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
         }
 
         .nav-links {
@@ -60,8 +70,8 @@
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
-            transition: color 0.3s ease;
             font-weight: 500;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
@@ -77,120 +87,163 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            background-color: var(--text-light);
-            margin: 5px 0;
-            transition: 0.3s;
+            background: var(--text-light);
+            margin: 3px 0;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, rgba(47, 65, 86, 0.9) 100%);
+        /* Hero / Registration Section */
+        .hero-reg {
+            background: linear-gradient(135deg, var(--primary) 0%, #3f5a78 100%);
             color: var(--text-light);
-            padding: 6rem 2rem;
-            text-align: center;
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            padding: 4rem 0;
+        }
+
+        .hero-reg .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInDown 0.8s ease;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--text-dark);
-            padding: 0.75rem 2rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: 2px solid var(--accent);
-        }
-
-        .cta-button:hover {
-            background-color: var(--primary);
-            color: var(--text-light);
-            border-color: var(--text-light);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 4rem 2rem;
-            background-color: var(--background);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
+        .hero-text h1 {
             font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--primary);
+            margin-bottom: 1rem;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
-        .service-card {
-            background-color: var(--text-light);
+        .reg-form {
+            background: var(--text-light);
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 5px solid var(--accent);
+            color: var(--text-dark);
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-icon {
-            font-size: 3rem;
+        .reg-form h3 {
             margin-bottom: 1rem;
             color: var(--primary);
         }
 
-        .service-card h3 {
-            color: var(--primary);
+        .reg-form input {
+            width: 100%;
+            padding: 0.8rem;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
         }
 
-        .service-card p {
-            color: #666;
-            line-height: 1.8;
+        .reg-form button {
+            background: var(--primary);
+            color: var(--text-light);
+            border: none;
+            padding: 0.8rem;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .reg-form button:hover {
+            background: #1f2e3f;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--text-light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(47,65,86,0.1);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card .meta {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--gray);
+        }
+
+        .card .price {
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .rating {
+            color: gold;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            color: var(--text-light);
         }
 
         /* About Section */
-        .about {
-            background-color: var(--accent);
-            padding: 4rem 2rem;
-            color: var(--text-dark);
+        .about-section {
+            background: var(--accent);
+            padding: 4rem 0;
         }
 
-        .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
@@ -203,170 +256,187 @@
             margin-bottom: 1rem;
         }
 
-        .about-text p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            color: var(--text-dark);
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 0.5rem;
         }
 
         .about-image {
-            width: 100%;
-            max-width: 400px;
-            height: 300px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: var(--primary);
             color: var(--text-light);
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Statistics */
+        .stats-section {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        /* Teachers */
+        .teacher-card {
+            text-align: center;
+        }
+
+        .teacher-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--accent);
+        }
+
+        .teacher-card h4 {
+            color: var(--primary);
+        }
+
+        .teacher-card p {
+            color: var(--gray);
+        }
+
+        /* Publications / Products */
+        .product-card {
+            text-align: center;
+        }
+
+        .product-card .price {
             font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Contact Info & Newsletter */
+        .contact-newsletter {
+            background: var(--background);
+            padding: 3rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            background: var(--text-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-item h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .newsletter-form button {
+            background: var(--primary);
+            color: var(--text-light);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         /* Footer */
         footer {
-            background-color: var(--primary);
+            background: var(--primary);
             color: var(--text-light);
-            padding: 2rem;
+            padding: 2rem 0;
             text-align: center;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
+        .social-links a {
             color: var(--accent);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: var(--text-light);
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
             text-decoration: none;
-            transition: color 0.3s ease;
         }
 
-        .footer-section a:hover {
-            color: var(--accent);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 1.5rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
             .nav-links {
+                display: none;
                 position: absolute;
                 top: 60px;
                 left: 0;
                 right: 0;
-                background-color: var(--primary);
+                background: var(--primary);
                 flex-direction: column;
-                gap: 1rem;
                 padding: 1rem;
-                display: none;
+                text-align: center;
             }
 
             .nav-links.active {
                 display: flex;
             }
 
-            .hero h1 {
-                font-size: 2rem;
+            .hamburger {
+                display: flex;
             }
 
-            .hero p {
-                font-size: 1rem;
+            .hero-reg .container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
             }
 
             .section-title {
                 font-size: 1.8rem;
             }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-container {
-                padding: 1rem;
-            }
-
-            .hero {
-                padding: 3rem 1rem;
-                min-height: 300px;
-            }
-
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            .cta-button {
-                padding: 0.6rem 1.5rem;
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">Ablinza Metis</a>
+        <div class="container nav-container">
+            <a href="#" class="logo">Ablinza <span>Metis</span></a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
                 <li><a href="#about">About Us</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#news">News</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -377,135 +447,265 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <h1>Welcome to Ablinza Metis</h1>
-        <p>Empowering Businesses Through Expert Training and Strategic Consultancy</p>
-        <a href="#services" class="cta-button">Explore Our Services</a>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- Hero + Registration -->
+    <section class="hero-reg" id="home">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">📚</div>
-                    <h3>Professional Training</h3>
-                    <p>Comprehensive training programs designed to enhance skills and knowledge across various industries and disciplines.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>Business Consultancy</h3>
-                    <p>Expert consulting services to optimize operations, drive growth, and achieve strategic objectives for your organization.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3>Strategic Planning</h3>
-                    <p>Develop actionable strategies tailored to your business goals, ensuring sustainable growth and competitive advantage.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">👥</div>
-                    <h3>Team Development</h3>
-                    <p>Build high-performing teams through leadership training, team building, and organizational development programs.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Data Analytics</h3>
-                    <p>Leverage data-driven insights to make informed decisions and improve business performance and ROI.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3>Digital Transformation</h3>
-                    <p>Guide your organization through digital transformation initiatives to stay competitive in the modern marketplace.</p>
-                </div>
+            <div class="hero-text">
+                <h1>Empower Your Career with Ablinza Metis</h1>
+                <p>Join thousands of professionals who trust our training and consultancy. Get 50+ courses free for a limited time!</p>
+            </div>
+            <div class="reg-form">
+                <h3>Register Now</h3>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Email Address">
+                <input type="tel" placeholder="Phone Number">
+                <button>Get Started</button>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-content">
+    <!-- About Us -->
+    <section class="about-section" id="about">
+        <div class="container about-grid">
             <div class="about-text">
-                <h2>About Ablinza Metis</h2>
-                <p>With over a decade of industry experience, Ablinza Metis Trainings and Consultancy stands as a beacon of excellence in professional development and business transformation.</p>
-                <p>Our team of certified professionals brings diverse expertise and proven methodologies to deliver exceptional results for our clients.</p>
-                <p>We are committed to fostering continuous learning, innovation, and sustainable business growth.</p>
+                <h2>Welcome to Ablinza Metis</h2>
+                <p>We are Abdullah and Inza – a husband-and-wife team dedicated to helping organizations achieve excellence through integrated management systems: QMS, EMS, OH&S, Lean Six Sigma, FSMS, and more.</p>
+                <ul class="feature-list">
+                    <li>Trending Courses</li>
+                    <li>Certified Trainers</li>
+                    <li>Books & Resources</li>
+                    <li>Online Learning</li>
+                    <li>Practical Consultancy</li>
+                    <li>Lab Facilities</li>
+                </ul>
             </div>
             <div class="about-image">
-                <p>Your Success Is Our Mission</p>
+                <p>📸 Your Success Is Our Mission</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Courses -->
+    <section class="container" id="courses">
+        <h2 class="section-title">Latest Courses</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>Lean Six Sigma Green Belt</h3>
+                <div class="rating">★★★★★</div>
+                <p class="price">$299</p>
+                <a href="#" class="btn">Enroll Now</a>
+            </div>
+            <div class="card">
+                <h3>ISO 9001:2025 Lead Auditor</h3>
+                <div class="rating">★★★★★</div>
+                <p class="price">$399</p>
+                <a href="#" class="btn">Enroll Now</a>
+            </div>
+            <div class="card">
+                <h3>Food Safety Management (FSSC 22000)</h3>
+                <div class="rating">★★★★☆</div>
+                <p class="price">$349</p>
+                <a href="#" class="btn">Enroll Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Teachers -->
+    <section class="container">
+        <h2 class="section-title">Meet Our Experts</h2>
+        <div class="cards-grid">
+            <div class="card teacher-card">
+                <img src="https://via.placeholder.com/120" alt="Abdullah">
+                <h4>Abdullah</h4>
+                <p>Lead Consultant, QMS & Lean Six Sigma</p>
+            </div>
+            <div class="card teacher-card">
+                <img src="https://via.placeholder.com/120" alt="Inza">
+                <h4>Inza</h4>
+                <p>Senior Trainer, EMS & OH&S</p>
+            </div>
+            <div class="card teacher-card">
+                <img src="https://via.placeholder.com/120" alt="John Doe">
+                <h4>John Doe</h4>
+                <p>Food Safety Specialist</p>
+            </div>
+            <div class="card teacher-card">
+                <img src="https://via.placeholder.com/120" alt="Jane Smith">
+                <h4>Jane Smith</h4>
+                <p>Lead Auditor, ISO 45001</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="container" id="news">
+        <h2 class="section-title">Our Latest News</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="meta">June 21, 2026</div>
+                <h3>New ISO 14001 Update Released</h3>
+                <p>Learn about the key changes and how they impact your EMS.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="card">
+                <div class="meta">June 18, 2026</div>
+                <h3>Lean Six Sigma White Belt Free Webinar</h3>
+                <p>Join our free webinar and get certified.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+            <div class="card">
+                <div class="meta">June 15, 2026</div>
+                <h3>Food Safety Culture – Best Practices</h3>
+                <p>How to build a strong food safety culture in your organization.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Events -->
+    <section class="container" id="events">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="meta">05 SEP 2026</div>
+                <h3>Integrated Management Systems Workshop</h3>
+                <p>Learn to integrate QMS, EMS, and OH&S for efficiency.</p>
+                <a href="#" class="btn">Register</a>
+            </div>
+            <div class="card">
+                <div class="meta">10 AUG 2026</div>
+                <h3>Lean Six Sigma Green Belt – Live Online</h3>
+                <p>4-week intensive training with certification.</p>
+                <a href="#" class="btn">Register</a>
+            </div>
+            <div class="card">
+                <div class="meta">05 AUG 2026</div>
+                <h3>ISO 22000 Internal Auditor Course</h3>
+                <p>Become a certified internal auditor for food safety.</p>
+                <a href="#" class="btn">Register</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>60+</h3>
+                <p>Expert Trainers</p>
+            </div>
+            <div class="stat-item">
+                <h3>40+</h3>
+                <p>Courses</p>
+            </div>
+            <div class="stat-item">
+                <h3>900+</h3>
+                <p>Students Trained</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Publications</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications / Products -->
+    <section class="container">
+        <h2 class="section-title">Our Resources</h2>
+        <div class="cards-grid">
+            <div class="card product-card">
+                <h3>QMS Toolkit</h3>
+                <p class="price">$40.00</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+            <div class="card product-card">
+                <h3>EMS Checklist</h3>
+                <p class="price">$30.00</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+            <div class="card product-card">
+                <h3>Lean Six Sigma Handbook</h3>
+                <p class="price">$35.00</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+            <div class="card product-card">
+                <h3>OH&S Risk Assessment Template</h3>
+                <p class="price">$30.00</p>
+                <a href="#" class="btn">Add to Cart</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- We Are Best -->
+    <section class="about-section">
+        <div class="container about-grid">
+            <div class="about-text">
+                <h2>We Are the Best Choice</h2>
+                <p>5500+ professionals trust our online courses and consultancy. Our practical approach ensures you get real-world skills that you can apply immediately.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <div class="about-image">
+                <p>🏆 Excellence in Training</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info & Newsletter -->
+    <section class="contact-newsletter" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>Address</h4>
+                    <p>503 Old Buffalo Street<br>Northwest #205, New York-3087</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Phone</h4>
+                    <p>+1 (234) 567-890<br>+1 (234) 567-891</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p>info@ablinzametis.com<br>support@ablinzametis.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for latest updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email">
+                        <button>Sign Up</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>About Us</h4>
-                <ul>
-                    <li><a href="#about">Our Story</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#">Team</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ablinza Metis Trainings and Consultancy (Pvt.) Ltd. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a> | <a href="#">Twitter</a> | <a href="#">Facebook</a>
             </div>
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#">Training Programs</a></li>
-                    <li><a href="#">Consultancy</a></li>
-                    <li><a href="#">Strategy</a></li>
-                    <li><a href="#">Development</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <ul>
-                    <li><a href="mailto:info@ablinzametis.com">info@ablinzametis.com</a></li>
-                    <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
-                    <li>123 Business Street, City, Country</li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <ul>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Ablinza Metis Trainings and Consultancy. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile menu toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
-
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
+                // Close mobile menu after click
+                navLinks.classList.remove('active');
             });
         });
     </script>
